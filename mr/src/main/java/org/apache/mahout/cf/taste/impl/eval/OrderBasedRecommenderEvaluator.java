@@ -339,8 +339,12 @@ public final class OrderBasedRecommenderEvaluator {
         }
       }
       if (vectorZ[i] != 0) {
-        ranks[i] = (rank / count) * (vectorZ[i] < 0 ? -1 : 1);  // better be at least 1
-        ranksAbs[i] = Math.abs(ranks[i]);
+    	 try { 
+    		 ranks[i] = (rank / count) * (vectorZ[i] < 0 ? -1 : 1);  // better be at least 1
+    		 ranksAbs[i] = Math.abs(ranks[i]);
+    	 } catch (Exception e) {
+    		 System.out.println("Cannot divide by zero");
+    	 }
       }
     }
   }
