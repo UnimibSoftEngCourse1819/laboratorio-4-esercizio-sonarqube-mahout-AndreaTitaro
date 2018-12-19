@@ -204,7 +204,12 @@ public final class RecommenderServlet extends HttpServlet {
   @Override
   public void doPost(HttpServletRequest request,
                      HttpServletResponse response) throws ServletException {
-    doGet(request, response);
+	  try {
+		  doGet(request, response);
+	  } catch (Exception e){
+		  System.out.println("Riscontrata un eccezione");
+	  }
+    
   }
 
   @Override
