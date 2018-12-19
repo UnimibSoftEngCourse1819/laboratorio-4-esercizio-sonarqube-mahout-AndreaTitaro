@@ -422,17 +422,22 @@ public class EigenDecomposition {
   private void cdiv(double xr, double xi, double yr, double yi) {
     double r;
     double d;
-    if (Math.abs(yr) > Math.abs(yi)) {
-      r = yi / yr;
-      d = yr + r * yi;
-      cdivr = (xr + r * xi) / d;
-      cdivi = (xi - r * xr) / d;
-    } else {
-      r = yr / yi;
-      d = yi + r * yr;
-      cdivr = (r * xr + xi) / d;
-      cdivi = (r * xi - xr) / d;
+    try {
+    	if (Math.abs(yr) > Math.abs(yi)) {
+    		r = yi / yr;
+    		d = yr + r * yi;
+    		cdivr = (xr + r * xi) / d;
+    		cdivi = (xi - r * xr) / d;
+    	} else {
+    		r = yr / yi;
+    		d = yi + r * yr;
+    		cdivr = (r * xr + xi) / d;
+    		cdivi = (r * xi - xr) / d;
+    	} catch (Exception e) {
+    		System.out.println("Cannot divide by zero");
+   	 	}		
     }
+    
   }
 
 
