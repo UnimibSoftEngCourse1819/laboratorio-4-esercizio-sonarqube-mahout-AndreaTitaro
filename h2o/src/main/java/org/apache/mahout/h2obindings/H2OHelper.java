@@ -159,7 +159,9 @@ public class H2OHelper {
      * MRTask to calculate sums of elements in all columns.
      */
     class MRTaskSum extends MRTask<MRTaskSum> {
-      public double sums[];
+    	
+      public static final double sums[];
+      
       @Override
       public void map(Chunk chks[]) {
         sums = new double[chks.length];
