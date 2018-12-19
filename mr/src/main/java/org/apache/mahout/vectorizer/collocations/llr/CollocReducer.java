@@ -113,8 +113,9 @@ public class CollocReducer extends Reducer<GramKey, Gram, Gram, Gram> {
       context.getCounter(Skipped.LESS_THAN_MIN_SUPPORT).increment(1);
       return;
     }
-
-    value.setFrequency(freq);
+    if (value != null) {
+    	value.setFrequency(freq);
+    }
     context.write(value, value);
 
   }
